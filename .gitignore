@@ -1,5 +1,12 @@
 # JAVA --------------------------------------------------
 
+#ant specific
+dist/
+build/
+ 
+#netbeans specific
+nbproject/
+
 *.class
 # Package Files #
 *.jar
