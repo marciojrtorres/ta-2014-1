@@ -1,11 +1,8 @@
 # JAVA --------------------------------------------------
 
-#ant specific
-dist/
-build/
- 
 #netbeans specific
-nbproject/
+nbproject/private/
+
 
 *.class
 # Package Files #
@@ -15,6 +12,7 @@ nbproject/
 doc/
 bin/
 dist/
+build/
 *~
 *.pydevproject
 .project
