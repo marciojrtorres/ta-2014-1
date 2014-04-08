@@ -10,3 +10,5 @@ CREATE TABLE usuarios (
     usuario VARCHAR(50)     NULL,
     senha   VARCHAR(50)
 );
+
+INSERT INTO usuarios VALUES (DEFAULT,'Marcio Torres', 'marcio','torres');

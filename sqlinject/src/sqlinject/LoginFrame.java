@@ -2,6 +2,7 @@ package sqlinject;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
@@ -79,15 +80,14 @@ public class LoginFrame extends javax.swing.JFrame {
             
             Connection con = DriverManager.getConnection("jdbc:postgresql://localhost/blog", "postgres", "postgres");
             
-            Statement stm = con.createStatement();
             
-            String sql = "SELECT * FROM usuarios WHERE usuario = '" 
-                    + tfUsuario.getText() + "' AND senha = '"
-                    + tfSenha.getText() + "'";
+            String sql = "SELECT * FROM usuarios WHERE usuario = ?  AND senha = ?";
+            // System.out.println(sql);
+            PreparedStatement prep = con.prepareStatement(sql);
+            prep.setString(1, tfUsuario.getText());
+            prep.setString(2, tfSenha.getText());
             
-            System.out.println(sql);
-            
-            ResultSet rs = stm.executeQuery(sql);
+            ResultSet rs = prep.executeQuery(sql);
             
             if (rs.next()) {
                 String usuario = rs.getString("nome");
@@ -97,7 +97,7 @@ public class LoginFrame extends javax.swing.JFrame {
             }
             
             rs.close();
-            stm.close();
+            prep.close();
             con.close();
             
         } catch (Exception e) {
