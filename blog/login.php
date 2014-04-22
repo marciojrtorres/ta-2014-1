@@ -35,8 +35,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
 
-    <h1>BLOG</h1>
+    <a href="/">Home</a>
 
+    <h1>BLOG</h1>
+    <img src="logo.jpg" alt="logo do blog">
     <h2>Login</h2>
 
     <form method="post">
