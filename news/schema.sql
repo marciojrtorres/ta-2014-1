@@ -10,3 +10,6 @@ CREATE TABLE noticias (
     imagem      VARCHAR(64),
     extensao    VARCHAR(4)
 );
+
+INSERT INTO noticias VALUES (DEFAULT, 'teste1', 'teste1', NULL, NULL),
+                            (DEFAULT, 'teste1', 'teste1', NULL, NULL);
