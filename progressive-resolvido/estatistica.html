@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Progressive Cobaia</title>
+    <script type="text/javascript" src="jquery-1.11.1.js"></script>
+</head>
+<body>
+
+    <h1>Progressive Cobaia</h1>
+        
+    <div id="chart"></div>
+
+    <table>
+        <caption>Browser Share - Desktop</caption>
+        <thead>
+            <tr>
+                <th>Browser</th><th>Share %</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Google Chrome</td><td>45</td>  
+            </tr>
+            <tr>
+                <td>Internet Explorer</td><td>27</td>  
+            </tr>
+            <tr>
+                <td>Mozilla Firefox</td><td>20</td>  
+            </tr>
+            <tr>
+                <td>Safari</td><td>5</td>  
+            </tr>
+            <tr>
+                <td>Opera</td><td>1</td>  
+            </tr>
+            <tr>
+                <td>Outros</td><td>2</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    * fonte: http://gs.statcounter.com/#desktop-browser-ww-monthly-201304-201404-bar
+
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+     
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+
+        var header = [];
+        var content = [];
+       
+        $('th').each(function() {
+            header.push($(this).text().trim());
+        });
+
+        content.push(header);
+
+        $('tbody tr').each(function() {
+            var cell = []
+            $(this).find('td').each(function() {
+                if (isNaN($(this).text())) {
+                    cell.push($(this).text().trim());
+                } else {
+                    cell.push(parseInt($(this).text()));
+                }
+                
+            });
+            content.push(cell);
+        });
+
+        var data = google.visualization.arrayToDataTable(content);
+
+        var options = {
+          title: $('table caption').text().trim()
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('chart'));
+        chart.draw(data, options);
+
+        $('table').hide();
+      }
+    </script>
+
+
+
+</body>
+</html>

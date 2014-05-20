@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Progressive Cobaia</title>
+
+    <script type="text/javascript" src="modernizr.custom.18163.js"></script>
+    <script type="text/javascript" src="jquery-1.11.1.js"></script>
+    
+    <style type="text/css">
+        label {
+            display: block;
+        }
+        #form {
+            padding: 20px;
+            margin: 20px;
+            border: 4px solid;
+        }
+        .boxshadow #form {
+            border: 2px solid silver;
+            -webkit-box-shadow:  #666 2px 2px 2px 2px;
+            -moz-box-shadow:  #666 2px 2px 2px 2px;
+            box-shadow: #666 2px 2px 2px 2px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 2px;
+            border-radius: 5px;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <form id="form">
+        
+        <label>Nome:</label>
+        <input type="text" maxlength="50" size="50">
+
+        <label>Cidade:</label>
+        <select id="cidades" name="cidades">
+            <option>Rio Grande</option>
+            <option>Pelotas</option>
+            <option>Chui</option>
+        </select>
+        
+
+    </form>
+
+    <script type="text/javascript">
+        if (Modernizr.input.list) {
+
+            select = document.getElementById("cidades");
+            input = document.createElement("input");        
+            input.name = select.name;
+            datalist = document.createElement('datalist');
+            datalist.id = 'cidades-list';
+            while (select.children[0] != undefined) {
+                datalist.appendChild(select.children[0]);
+            }
+            
+            select.remove();
+            
+            $('form').append(input);
+            $('form').append(datalist);
+            $(input).attr('list', 'cidades-list');
+
+        }
+    </script>
+</body>
+</html>
