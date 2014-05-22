@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>#data</title>
+    <script type="text/javascript" src="modernizr-latest.js"></script>
+    <script type="text/javascript" src="jquery-1.8.3.js"></script>
+    
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">    
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        tableData = [];
+
+        var headData = [];
+        $('table > thead > tr th').each(function() {
+            headData.push($(this).text());  
+        });
+
+        tableData.push(headData);
+
+        $('table > tbody > tr').each(function() {
+            var rowData = [];
+            $(this).find('td').each(function() {
+                var text = $(this).text();
+                if (isNaN(text)) rowData.push(text);
+                else rowData.push(parseInt(text));                
+            });
+            tableData.push(rowData);
+        });
+
+        var data = google.visualization.arrayToDataTable(tableData);
+        console.log(data);
+
+        var options = {
+          title: 'Browser Share'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));        
+
+        $('table').hide();
+        $('div#piechart').show();
+
+        chart.draw(data, options);
+
+      }
+    </script>
+
+</head>
+<body>
+
+    <h1>Progressive Enhancement #data</h1>
+
+    <div id="piechart" style="display: none; width: 900px; height: 500px;"></div>
+
+    <table>
+        <caption>Browser Share</caption>
+        <thead>
+            <tr>
+                <th>Navegador</th>
+                <th>Participação %</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Google Chrome</td>
+                <td>42</td>
+            </tr>
+            <tr>
+                <td>Internet Explorer</td>
+                <td>26</td>
+            </tr>
+            <tr>
+                <td>Firefox</td>
+                <td>19</td>
+            </tr>
+            <tr>
+                <td>Safari</td>
+                <td>9</td>
+            </tr>
+            <tr>
+                <td>Opera</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>Outros</td>
+                <td>3</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br><br>
+
+    <cite>fonte: http://gs.statcounter.com/#browser-ww-monthly-201304-201404-bar</cite>
+</body>
+</html>
