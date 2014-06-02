@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Progressive Cobaia</title>
+
+    <script type="text/javascript" src="modernizr.custom.18163.js"></script>
+    <script type="text/javascript" src="jquery-1.11.1.js"></script>
+</head>
+<body>
+    
+    <form id="form">
+        
+        <label>Estado:</label>
+        <input type="text" name="estado" list="estados">
+        <datalist id="estados">
+        <option>Rio Grande do Sul</option>
+        <option>Santa Catarina</option>
+        </datalist>
+
+        <br>
+
+        <label>Nome:</label>
+        <input type="text" maxlength="50" size="50">
+        
+        <br>
+
+        <label>Cidade:</label>
+        <select id="cidades" name="cidades">
+            <option>Rio Grande</option>
+            <option>Pelotas</option>
+            <option>Chui</option>
+        </select>
+
+
+        
+
+    </form>
+
+    <script type="text/javascript">
+        if (Modernizr.input.list) {
+
+            select = document.getElementById("cidades");
+            input = document.createElement("input");        
+            input.name = select.name;
+            datalist = document.createElement('datalist');
+            datalist.id = 'cidades-list';
+            while (select.children[0] != undefined) {
+                datalist.appendChild(select.children[0]);
+            }
+            
+            select.remove();
+            
+            $('form').append(input);
+            $('form').append(datalist);
+            $(input).attr('list', 'cidades-list');
+
+        }
+    </script>
+</body>
+</html>

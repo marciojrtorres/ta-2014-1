@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>#forms</title>
+    <script type="text/javascript" src="modernizr.custom.18163.js"></script>
+
+    <style type="text/css">
+        br {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        form {
+            margin-top: 20px;
+            padding: 20px;
+        }
+
+        input[type=radio] {
+            display: none;
+        }        
+
+        input[type=radio] + label {
+            border: 1px solid silver;
+            padding: 5px;
+            background-color: silver;
+            margin-right: 5px;
+            margin-left: 5px;
+        }
+        input[type=radio]:checked + label {
+            border: 1px solid silver;
+            padding: 5px;
+            background-color: white;
+            margin-right: 5px;
+            margin-left: 5px;
+        }
+    </style> 
+</head>
+<body>
+
+    <h1>Progressive Enhancement #forms</h1>
+
+    <form>   
+        <label>Nome:</label>     
+        <input type="text" placeholder="Seu Nome">
+
+        <br>        
+
+        <label>
+            Estado Cívil:            
+        </label>
+
+        
+        <input type="radio" name="estado_civil" value="0" id="solteiro">
+        <label for="solteiro">
+        Solteiro(a)
+        </label>
+
+        
+        <input type="radio" name="estado_civil" value="1" id="casado">
+        <label for="casado">
+        Casado(a)
+        </label>
+
+        
+        <input type="radio" name="estado_civil" value="2" id="divorciado">
+        <label for="divorciado">
+        Divorciado(a)
+        </label>
+    </form>
+
+    
+</body>
+</html>
