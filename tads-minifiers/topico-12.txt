@@ -1,0 +1,7 @@
+topico-12
+Otimização de Recursos:
+minificar, combinar e pré-processadores
+
+Reduzir a quantidade de bytes: "minificando"
+Reduzir a quantidade de requisições: combinando
+

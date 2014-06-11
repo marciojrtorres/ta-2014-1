@@ -1,0 +1,41 @@
+.s-1, .s-2, .s-3, .s-4, .s-5, .s-6{
+	background: url(../img/sprites.png) no-repeat;
+	display: inline-block;
+}
+
+.s-1{
+	background-position: 0 0;
+	width: 16px;
+	height: 16px;
+}
+
+.s-2{
+	background-position: -16px -16px ;
+	width: 16px;
+	height: 16px;
+}
+
+.s-3{
+	background-position: 0 -16px ;
+	width: 16px;
+	height: 16px;
+}
+
+.s-4{
+	background-position: -32px -16px ;
+	width: 16px;
+	height: 16px;
+}
+
+.s-5{
+	background-position: -16px 0;
+	width: 16px;
+	height: 16px;
+}
+
+.s-6{
+	background-position: -32px 0;
+	width: 16px;
+	height: 16px;
+}
+
